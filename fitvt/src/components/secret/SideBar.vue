@@ -2,6 +2,13 @@
   <section>
     <Spinner v-if="loading" />
     <header>
+      <div class="logo">
+        <img src="@/assets/logo.png" alt="logo" />
+        <p>FITvt</p>
+      </div>
+    </header>
+
+    <div class="name">
       <div class="profile-image">
         <input type="file" @change="inputChange" />
         <img
@@ -13,23 +20,14 @@
           id="avatar"
         />
       </div>
-      <div class="logo">
-        <img src="@/assets/logo.png" alt="logo" />
-        <p>FITvt</p>
-      </div>
-    </header>
-    <br />
-    <br />
-    <div class="name">
-      <h3>{{ username }}</h3>
+      <h3 class="fakelogo">{{ username }}</h3>
     </div>
-    <br />
     <hr />
     <br />
     <div class="friends">
       <p>Friends</p>
-      <router-link to="/secret/all-users">
-					<img src = "@/assets/addfriends.png" style="width:25px "/>
+      <router-link  to="/secret/all-users">
+					<img  src = "@/assets/addfriends.png" style="width:25px; height:25px"/>
 				</router-link>
     </div>
     <br />
@@ -177,28 +175,40 @@ section header {
   display: flex;
   justify-content: space-evenly;
 }
-section header .profile-image input {
+section header .logo {
+  display: flex;
+  align-items: center;
+  color: #eee;
+  font-size: 3rem;
+  user-select: none;
+  /* transform: translate(-80px, 10px);
+  justify-content: center; */
+}
+section .name .profile-image input {
   opacity: 0;
   position: relative;
   top: 40px;
   transform: scale(0.6, 3);
   cursor: pointer;
 }
-section header .profile-image #avatar {
+section .name .profile-image #avatar {
   vertical-align: middle;
   width: 55px;
   height: 55px;
   border-radius: 50%;
 }
-section header .logo {
+section .name .fakelogo {
   display: flex;
   align-items: center;
   color: #eee;
-  font-size: 2rem;
   user-select: none;
   transform: translate(-80px, 10px);
 }
-section .name,
+section .name {
+  display: flex;
+  justify-content: space-evenly;
+  color: #d5d5d5;
+}
 section .friends {
   display: flex;
   justify-content: space-between;
@@ -263,4 +273,5 @@ section button {
   cursor: pointer;
   color: #eee;
 }
+
 </style>
